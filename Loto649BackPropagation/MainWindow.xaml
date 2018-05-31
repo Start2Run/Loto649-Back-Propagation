@@ -1,0 +1,285 @@
+﻿<Window x:Class="Loto649BackPropagation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Loto649BackPropagation"
+        mc:Ignorable="d"
+        Title="Loto NeuralNetwork BackPropagation" Height="500" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="GroupHeaderStyle" TargetType="{x:Type GroupItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                        <Expander x:Name="exp" IsExpanded="False" Background="White" Foreground="Black">
+                            <Expander.Header>
+                                <TextBlock Text="{Binding Name}"/>
+                            </Expander.Header>
+                            <ItemsPresenter/>
+                        </Expander>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Visibility" Value="Visible" />
+            <Setter Property="Foreground" Value="{Binding Foreground}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid Height="35">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="4" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Name="Border" BorderBrush="#FFD4B300" BorderThickness="0,4,0,0"  CornerRadius="0,0,0,0" Grid.Column="0" >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                        <GradientStop Color="#FFD4D4D4" Offset="0.7" />
+                                        <GradientStop Color="CadetBlue" Offset="0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <!--<Rectangle x:Name="LineSelected" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,6,0,0" Fill="Aqua" Height="4" Width="50"/>-->
+
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" />
+                            <Border Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" />
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Green" />
+                                <Setter Property="FontSize" Value="13" />
+                                <Setter Property="CornerRadius" Value="8,8,0,0" TargetName="Border" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TabPanel x:Name="HeaderPanel" Grid.Row="1" Panel.ZIndex="1" Margin="5,0,4,-3" IsItemsHost="True" Height="35" />
+                            <Border x:Name="Border" Grid.Row="2" BorderThickness="1" CornerRadius="5,5,5,5" BorderBrush="#FFDBDBDB" Background="White">
+                                <Grid>
+                                    <Border CornerRadius="5,5,5,5" Margin="3,3,0,0">
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="#FFA0A0A0" Direction="120" />
+                                        </Border.Effect>
+                                        <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4"  ContentSource="SelectedContent" />
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FFD4D4D4" Offset="1" />
+                                                <GradientStop Color="White" Offset="0" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="LightGray">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="Blue">
+            <TabItem Header="Data Load" Foreground="Black">
+                <Border Grid.Column="0" CornerRadius="3,3,3,3" BorderBrush="#FFA5A5A5" BorderThickness="1,1,1,1" Margin="5,5,5,5" Background="white">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Name="btnBrowse" Content="Browse" Height="25" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Click="Browse_Click"/>
+                        <Button Name="btnLoad" Content="Load" Height="25" Width="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Click="Load_Click" IsEnabled="False"/>
+                        <TextBox Name="LblFile"  Text="" Height="20" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Background="White" Foreground="Blue" Grid.Row="1" Grid.Column="1" IsReadOnly="True"/>
+                        <WrapPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                            <DataGrid Name="DGV" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" MinWidth="200" MinHeight="200">
+                                <DataGrid.GroupStyle>
+                                    <GroupStyle ContainerStyle="{StaticResource GroupHeaderStyle}">
+                                        <GroupStyle.Panel>
+                                            <ItemsPanelTemplate>
+                                                <DataGridRowsPresenter/>
+                                            </ItemsPanelTemplate>
+                                        </GroupStyle.Panel>
+                                    </GroupStyle>
+                                </DataGrid.GroupStyle>
+                            </DataGrid>
+                        </WrapPanel>
+                    </Grid>
+                </Border>
+            </TabItem>
+            <TabItem Header="Network" Foreground="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="7*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" CornerRadius="3,3,3,3" BorderBrush="#FFA5A5A5" BorderThickness="1,1,1,1" Margin="5,5,5,5" Background="white">
+                        <Grid local:GridExpanderSizeBehavior.SizeRowsToExpanderState="True">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Expander Grid.Row="0" Header="Configuration" IsExpanded="true">
+                                <Grid x:Name="GridConfig" IsEnabled="true">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Last Number" />
+                                    <TextBox Name="txtMaxLotoNumber" Grid.Row="1" Grid.Column="1" Text="49" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInputNumeric"/>
+
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Epochs" />
+                                    <TextBox Name="txtMaxEpochs" Grid.Row="2" Grid.Column="1" Text="100" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInputNumeric"/>
+
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Seed" />
+                                    <TextBox Name="txtBoxSeed" Grid.Row="3" Grid.Column="1" Text="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInputNumeric"/>
+                                    
+                                    <Label Grid.Row="4" Grid.Column="0" Content="Lean Rate" />
+                                    <TextBox Name="txtBoxLearnRate" Grid.Row="4" Grid.Column="1" Text="0.05" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInputNumeric"/>
+
+                                    <Label Grid.Row="5" Grid.Column="0" Content="Momentum" />
+                                    <TextBox Name="txtBoxMomentum" Grid.Row="5" Grid.Column="1" Text="0.01" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInputNumeric"/>
+                                </Grid>
+                            </Expander>
+                            <Expander Grid.Row="1" Header="Train" IsExpanded="True">
+                                <Grid x:Name="GridTrain" IsEnabled="False" HorizontalAlignment="Left">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Button x:Name="btnTrain"  Grid.Row="0" Content="Train Network" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="btnTrain_Click"/>
+                                    <Border Grid.Row="1" CornerRadius="3,3,3,3" BorderBrush="#FFA5A5A5" BorderThickness="1,1,1,1" Margin="5,5,5,5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                        <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="Choose Train Method" Foreground="Blue" Background="Beige"/>
+                                            <ComboBox x:Name="ckboxTrain" Grid.Row="1" SelectedIndex="0">
+                                                <ComboBoxItem x:Name="cbAll" Content="All"/>
+                                                <ComboBoxItem x:Name="cb1Number" Content="1 Number"/>
+                                                <ComboBoxItem x:Name="cb2Numbers" Content="2 Numbers"/>
+                                                <ComboBoxItem x:Name="cb3Numbers" Content="3 Numbers"/>
+                                                <ComboBoxItem x:Name="cb4Numbers" Content="4 Numbers"/>
+                                                <ComboBoxItem x:Name="cb5Numbers" Content="5 Numbers"/>
+                                                <ComboBoxItem x:Name="cbAdvanced" Content="Advanced"/>
+                                            </ComboBox>
+                                                <!--<CheckBox x:Name="checkBox1" Grid.Row="0" Content="1 Number " Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="1"/>
+                                                <CheckBox x:Name="checkBox2" Grid.Row="1" Content="2 Numbers" Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="2"/>
+                                                <CheckBox x:Name="checkBox3" Grid.Row="2" Content="3 Numbers" Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="3"/>
+                                                <CheckBox x:Name="checkBox4" Grid.Row="3" Content="4 Numbers" Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="4"/>
+                                                <CheckBox x:Name="checkBox5" Grid.Row="4" Content="5 Numbers" Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="5"/>
+                                                <CheckBox x:Name="checkBox6" Grid.Row="5" Content="6 Numbers" Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked" Tag="6"/>
+                                                <CheckBox x:Name="checkBoxAdvanced" Grid.Row="6" Content="Advanced " Height="20"  HorizontalAlignment="Center" Checked="checkBox_Checked"/>-->
+                                            </Grid>
+                                    </Border>
+                                </Grid>
+                            </Expander>
+                            <Expander Grid.Row="2" Header="Test" IsExpanded="true">
+                                <Grid x:Name="GridTest" IsEnabled="False">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Button x:Name="btnTest" Content="Test Network" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="0" Click="btnTest_Click"/>
+                                    <TextBlock Text="Numbers" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Maroon"/>
+                                    <StackPanel Grid.Row="2" HorizontalAlignment="Center" Height="163" VerticalAlignment="Bottom" Width="120">
+                                        <Grid Background="AliceBlue" ShowGridLines="True">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label  Content="Number 1" Grid.Row="0" Grid.Column="0" />
+                                            <Label  Content="Number 2" Grid.Row="1" Grid.Column="0" />
+                                            <Label  Content="Number 3" Grid.Row="2" Grid.Column="0" />
+                                            <Label  Content="Number 4" Grid.Row="3" Grid.Column="0" />
+                                            <Label  Content="Number 5" Grid.Row="4" Grid.Column="0" />
+                                            <Label  Content="Number 6" Grid.Row="5" Grid.Column="0" />
+
+                                            <TextBox x:Name="TxtBoxNr1" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                            <TextBox x:Name="TxtBoxNr2" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                            <TextBox x:Name="TxtBoxNr3" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                            <TextBox x:Name="TxtBoxNr4" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                            <TextBox x:Name="TxtBoxNr5" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                            <TextBox x:Name="TxtBoxNr6" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" PreviewTextInput="textBoxValue_PreviewTextInput"/>
+                                        </Grid>
+                                    </StackPanel>
+                                    <DatePicker Name="datePicker" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Expander>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1" CornerRadius="3,3,3,3" BorderBrush="#FFA5A5A5" BorderThickness="1,1,1,1" Margin="5,5,5,5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="3"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                            </StackPanel>
+                            <GridSplitter Grid.Row="1" Grid.Column="1" Height="3" HorizontalAlignment="Stretch" Background="Blue"/>
+                            <DockPanel Grid.Row="2" Grid.Column="1" Height="Auto" Width="Auto" Background="Black" LastChildFill="False" >
+                                <RichTextBox Name="RtboxConsole" Background="Black" Foreground="White" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

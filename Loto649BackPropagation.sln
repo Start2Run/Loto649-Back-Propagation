@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loto649BackPropagation", "Loto649BackPropagation\Loto649BackPropagation.csproj", "{A8F8B55F-D070-4CC0-ADD1-1D42F64028BE}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedClasses", "SharedClasses\SharedClasses.shproj", "{1E9F6667-C6D5-49EE-A1D4-23ECBEF4DBFC}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedClasses\SharedClasses.projitems*{1e9f6667-c6d5-49ee-a1d4-23ecbef4dbfc}*SharedItemsImports = 13
+		SharedClasses\SharedClasses.projitems*{a8f8b55f-d070-4cc0-add1-1d42f64028be}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8F8B55F-D070-4CC0-ADD1-1D42F64028BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F8B55F-D070-4CC0-ADD1-1D42F64028BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F8B55F-D070-4CC0-ADD1-1D42F64028BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F8B55F-D070-4CC0-ADD1-1D42F64028BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,44 @@
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe.config
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.pdb
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.g.cs
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\App.g.cs
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.cache
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.lref
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.baml
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.g.resources
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.Properties.Resources.resources
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csproj.GenerateResource.Cache
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.exe
+c:\users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.pdb
+C:\Users\mihaivs\documents\visual studio 2015\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csprojResolveAssemblyReference.cache
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe.config
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.exe
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.pdb
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.pdb
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csprojResolveAssemblyReference.cache
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.g.cs
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\App.g.cs
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.cache
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.lref
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.baml
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.g.resources
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.Properties.Resources.resources
+C:\Users\olarumi\Downloads\drive-download-20161114T171825Z\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csproj.GenerateResource.Cache
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe.config
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.exe
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\bin\Debug\Loto649BackPropagation.pdb
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.g.cs
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\App.g.cs
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.cache
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation_MarkupCompile.lref
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\MainWindow.baml
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.g.resources
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.Properties.Resources.resources
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csproj.GenerateResource.Cache
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.exe
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.pdb
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csproj.CoreCompileInputs.cache
+D:\Projects\Loto649BackPropagation\Loto649BackPropagation\obj\Debug\Loto649BackPropagation.csprojAssemblyReference.cache
